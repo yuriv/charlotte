@@ -6,20 +6,85 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>684</width>
+    <height>712</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Charlotte</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="1" column="0">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="handleWidth">
+       <number>3</number>
+      </property>
+      <widget class="QMdiArea" name="mdiArea">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
+       </property>
+       <widget class="QWidget" name="subwindow">
+        <property name="windowTitle">
+         <string>Subwindow</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="cursorWidth">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>684</width>
      <height>21</height>
     </rect>
    </property>
@@ -54,20 +119,194 @@
     <property name="title">
      <string>View</string>
     </property>
+    <widget class="QMenu" name="menuZoom">
+     <property name="title">
+      <string>Zoom</string>
+     </property>
+     <addaction name="actionExtents"/>
+     <addaction name="actionWindow"/>
+     <addaction name="actionPrevious"/>
+     <addaction name="actionIn"/>
+     <addaction name="actionOut"/>
+    </widget>
+    <widget class="QMenu" name="menuIsometric">
+     <property name="title">
+      <string>Isometric</string>
+     </property>
+     <addaction name="actionSW"/>
+     <addaction name="actionSE"/>
+     <addaction name="actionNE"/>
+     <addaction name="actionNW"/>
+     <addaction name="actionOrbit"/>
+    </widget>
+    <widget class="QMenu" name="menuUCS">
+     <property name="title">
+      <string>UCS</string>
+     </property>
+     <addaction name="actionWorld"/>
+     <addaction name="actionObject"/>
+     <addaction name="action2_points"/>
+     <addaction name="actionPrevious_2"/>
+    </widget>
+    <addaction name="menuZoom"/>
+    <addaction name="actionPan"/>
+    <addaction name="menuIsometric"/>
+    <addaction name="actionRender"/>
+    <addaction name="menuUCS"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Tools</string>
     </property>
+    <addaction name="actionTools_Designer"/>
     <addaction name="actionReport_Designer"/>
     <addaction name="actionData_Integration"/>
    </widget>
+   <widget class="QMenu" name="menuHome">
+    <property name="title">
+     <string>Home</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuDraw">
+    <property name="title">
+     <string>Draw</string>
+    </property>
+    <widget class="QMenu" name="menuWall">
+     <property name="title">
+      <string>Wall</string>
+     </property>
+     <addaction name="actionLinear"/>
+     <addaction name="actionCurved"/>
+    </widget>
+    <widget class="QMenu" name="menuDoor">
+     <property name="title">
+      <string>Door</string>
+     </property>
+     <addaction name="actionSingle"/>
+     <addaction name="actionDouble"/>
+    </widget>
+    <widget class="QMenu" name="menuShape">
+     <property name="title">
+      <string>Shape</string>
+     </property>
+     <addaction name="actionRectangle"/>
+     <addaction name="actionPolygone"/>
+    </widget>
+    <addaction name="menuWall"/>
+    <addaction name="menuDoor"/>
+    <addaction name="actionLine_Polyline"/>
+    <addaction name="menuShape"/>
+    <addaction name="actionCircle"/>
+    <addaction name="actionBlock"/>
+    <addaction name="action3D_Library"/>
+   </widget>
+   <widget class="QMenu" name="menuModify">
+    <property name="title">
+     <string>Modify</string>
+    </property>
+    <widget class="QMenu" name="menuDivide">
+     <property name="title">
+      <string>Divide</string>
+     </property>
+     <addaction name="actionBy_size"/>
+     <addaction name="actionBy_number"/>
+    </widget>
+    <widget class="QMenu" name="menuReverse">
+     <property name="title">
+      <string>Reverse</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionDirection"/>
+     <addaction name="actionOn_place"/>
+    </widget>
+    <addaction name="menuDivide"/>
+    <addaction name="actionMerge"/>
+    <addaction name="menuReverse"/>
+    <addaction name="actionMatch"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionRotate"/>
+    <addaction name="actionErase"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+   </widget>
+   <widget class="QMenu" name="menuAnnotate">
+    <property name="title">
+     <string>Annotate</string>
+    </property>
+    <widget class="QMenu" name="menuDims">
+     <property name="title">
+      <string>Dims</string>
+     </property>
+     <addaction name="actionLinear_2"/>
+     <addaction name="actionContinue"/>
+     <addaction name="actionAngle"/>
+     <addaction name="actionArc"/>
+    </widget>
+    <widget class="QMenu" name="menuText">
+     <property name="title">
+      <string>Text</string>
+     </property>
+     <addaction name="actionText_2"/>
+     <addaction name="actionLeader"/>
+    </widget>
+    <widget class="QMenu" name="menuElevation">
+     <property name="title">
+      <string>Elevation</string>
+     </property>
+     <addaction name="actionMark"/>
+     <addaction name="actionCreate"/>
+    </widget>
+    <widget class="QMenu" name="menuLegend">
+     <property name="title">
+      <string>Legend</string>
+     </property>
+     <addaction name="actionModules"/>
+     <addaction name="actionLayout"/>
+    </widget>
+    <widget class="QMenu" name="menuReview">
+     <property name="title">
+      <string>Review</string>
+     </property>
+     <addaction name="actionCallouts"/>
+     <addaction name="actionRegion"/>
+    </widget>
+    <addaction name="menuDims"/>
+    <addaction name="menuText"/>
+    <addaction name="menuElevation"/>
+    <addaction name="menuLegend"/>
+    <addaction name="menuReview"/>
+   </widget>
+   <widget class="QMenu" name="menuPublish">
+    <property name="title">
+     <string>Publish</string>
+    </property>
+    <addaction name="actionSheet"/>
+    <addaction name="actionPlot"/>
+    <addaction name="actionQuote"/>
+    <addaction name="actionOrders"/>
+   </widget>
+   <widget class="QMenu" name="menuManage">
+    <property name="title">
+     <string>Manage</string>
+    </property>
+    <addaction name="actionObject_Designer"/>
+   </widget>
    <addaction name="menu_File"/>
+   <addaction name="menuHome"/>
+   <addaction name="menuDraw"/>
+   <addaction name="menuModify"/>
+   <addaction name="menuAnnotate"/>
    <addaction name="menuView"/>
+   <addaction name="menuPublish"/>
+   <addaction name="menuManage"/>
    <addaction name="menuTools"/>
    <addaction name="menu_help"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+  </widget>
   <action name="actionNewProject">
    <property name="text">
     <string>Project...</string>
@@ -105,6 +344,281 @@
   <action name="actionAbout_Charlotte">
    <property name="text">
     <string>About Charlotte </string>
+   </property>
+  </action>
+  <action name="actionLinear">
+   <property name="text">
+    <string>Linear</string>
+   </property>
+  </action>
+  <action name="actionCurved">
+   <property name="text">
+    <string>Curved</string>
+   </property>
+  </action>
+  <action name="actionSingle">
+   <property name="text">
+    <string>Single</string>
+   </property>
+  </action>
+  <action name="actionDouble">
+   <property name="text">
+    <string>Double</string>
+   </property>
+  </action>
+  <action name="actionLine_Polyline">
+   <property name="text">
+    <string>Line/Polyline</string>
+   </property>
+  </action>
+  <action name="actionRectangle">
+   <property name="text">
+    <string>Rectangle</string>
+   </property>
+  </action>
+  <action name="actionPolygone">
+   <property name="text">
+    <string>Polygone</string>
+   </property>
+  </action>
+  <action name="actionCircle">
+   <property name="text">
+    <string>Circle</string>
+   </property>
+  </action>
+  <action name="actionBlock">
+   <property name="text">
+    <string>Block</string>
+   </property>
+  </action>
+  <action name="action3D_Library">
+   <property name="text">
+    <string>3D Library...</string>
+   </property>
+  </action>
+  <action name="actionBy_size">
+   <property name="text">
+    <string>By size</string>
+   </property>
+  </action>
+  <action name="actionBy_number">
+   <property name="text">
+    <string>By number</string>
+   </property>
+  </action>
+  <action name="actionMerge">
+   <property name="text">
+    <string>Merge</string>
+   </property>
+  </action>
+  <action name="actionDirection">
+   <property name="text">
+    <string>Direction</string>
+   </property>
+  </action>
+  <action name="actionOn_place">
+   <property name="text">
+    <string>On place</string>
+   </property>
+  </action>
+  <action name="actionMatch">
+   <property name="text">
+    <string>Match</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionRotate">
+   <property name="text">
+    <string>Rotate</string>
+   </property>
+  </action>
+  <action name="actionErase">
+   <property name="text">
+    <string>Erase</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionLinear_2">
+   <property name="text">
+    <string>Linear</string>
+   </property>
+  </action>
+  <action name="actionContinue">
+   <property name="text">
+    <string>Continue</string>
+   </property>
+  </action>
+  <action name="actionAngle">
+   <property name="text">
+    <string>Angle</string>
+   </property>
+  </action>
+  <action name="actionArc">
+   <property name="text">
+    <string>Arc</string>
+   </property>
+  </action>
+  <action name="actionText_2">
+   <property name="text">
+    <string>Text</string>
+   </property>
+  </action>
+  <action name="actionLeader">
+   <property name="text">
+    <string>Leader</string>
+   </property>
+  </action>
+  <action name="actionMark">
+   <property name="text">
+    <string>Mark</string>
+   </property>
+  </action>
+  <action name="actionCreate">
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </action>
+  <action name="actionModules">
+   <property name="text">
+    <string>Modules</string>
+   </property>
+  </action>
+  <action name="actionLayout">
+   <property name="text">
+    <string>Layout</string>
+   </property>
+  </action>
+  <action name="actionCallouts">
+   <property name="text">
+    <string>Callouts</string>
+   </property>
+  </action>
+  <action name="actionRegion">
+   <property name="text">
+    <string>Region</string>
+   </property>
+  </action>
+  <action name="actionExtents">
+   <property name="text">
+    <string>Extents</string>
+   </property>
+  </action>
+  <action name="actionWindow">
+   <property name="text">
+    <string>Window</string>
+   </property>
+  </action>
+  <action name="actionPrevious">
+   <property name="text">
+    <string>Previous</string>
+   </property>
+  </action>
+  <action name="actionIn">
+   <property name="text">
+    <string>In</string>
+   </property>
+  </action>
+  <action name="actionOut">
+   <property name="text">
+    <string>Out</string>
+   </property>
+  </action>
+  <action name="actionPan">
+   <property name="text">
+    <string>Pan</string>
+   </property>
+  </action>
+  <action name="actionSW">
+   <property name="text">
+    <string>SW</string>
+   </property>
+  </action>
+  <action name="actionSE">
+   <property name="text">
+    <string>SE</string>
+   </property>
+  </action>
+  <action name="actionNE">
+   <property name="text">
+    <string>NE</string>
+   </property>
+  </action>
+  <action name="actionNW">
+   <property name="text">
+    <string>NW</string>
+   </property>
+  </action>
+  <action name="actionOrbit">
+   <property name="text">
+    <string>Orbit</string>
+   </property>
+  </action>
+  <action name="actionRender">
+   <property name="text">
+    <string>Render</string>
+   </property>
+  </action>
+  <action name="actionWorld">
+   <property name="text">
+    <string>World</string>
+   </property>
+  </action>
+  <action name="actionObject">
+   <property name="text">
+    <string>Object</string>
+   </property>
+  </action>
+  <action name="action2_points">
+   <property name="text">
+    <string>2 points</string>
+   </property>
+  </action>
+  <action name="actionPrevious_2">
+   <property name="text">
+    <string>Previous</string>
+   </property>
+  </action>
+  <action name="actionSheet">
+   <property name="text">
+    <string>Sheet</string>
+   </property>
+  </action>
+  <action name="actionPlot">
+   <property name="text">
+    <string>Plot</string>
+   </property>
+  </action>
+  <action name="actionQuote">
+   <property name="text">
+    <string>Quote</string>
+   </property>
+  </action>
+  <action name="actionOrders">
+   <property name="text">
+    <string>Orders</string>
+   </property>
+  </action>
+  <action name="actionTools_Designer">
+   <property name="text">
+    <string>Tools Designer</string>
+   </property>
+  </action>
+  <action name="actionObject_Designer">
+   <property name="text">
+    <string>Object Designer</string>
    </property>
   </action>
  </widget>
@@ -146,7 +660,7 @@
    <sender>actionReport_Designer</sender>
    <signal>triggered()</signal>
    <receiver>charlotteClass</receiver>
-   <slot>runPentahoRD()</slot>
+   <slot>runReportDesigner()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -162,7 +676,7 @@
    <sender>actionData_Integration</sender>
    <signal>triggered()</signal>
    <receiver>charlotteClass</receiver>
-   <slot>runPentahoDI()</slot>
+   <slot>runDataIntegration()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -208,8 +722,8 @@
   </connection>
  </connections>
  <slots>
-  <slot>runPentahoDI()</slot>
-  <slot>runPentahoRD()</slot>
+  <slot>runDataIntegration()</slot>
+  <slot>runReportDesigner()</slot>
   <slot>runCharlotteHelp()</slot>
   <slot>runCharlotteAbout()</slot>
   <slot>runNewProject()</slot>

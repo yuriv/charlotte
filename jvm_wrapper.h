@@ -38,16 +38,16 @@ struct ch_jvm_wrapper
 	//ch_jvm_wrapper() {}
 	//~ch_jvm_wrapper() { delete _launcher; }
 
-	static int launch_pentaho_DI(QObject* parent = 0);
-	static int launch_pentaho_RD(QObject* parent = 0);
+	static int _launch_data_integration(QObject* parent = 0);
+	static int _launch_report_designer(QObject* parent = 0);
 
 	friend class ch_launcher;
 
 	static ch_launcher* _launcher;
 
 private:
-	static int _launch_pentaho_DI(pentaho_DI_desc* dsc = 0);
-	static int _launch_pentaho_RD(pentaho_RD_desc* dsc = 0);
+	static int _launch_data_integration(data_integration_desc* dsc = 0);
+	static int _launch_report_designer(report_designer_desc* dsc = 0);
 };
 
 #endif // jvm_wrapper_h__

@@ -17,8 +17,8 @@ public:
 public slots:
 	void runNewProject();
 	void runOpenProject();
-	void runPentahoDI();
-	void runPentahoRD();
+	void runDataIntegration();
+	void runReportDesigner();
 	void runCharlotteHelp();
 	void runCharlotteAbout();
 

@@ -74,14 +74,14 @@ void charlotte::runOpenProject()
 
 }
 
-void charlotte::runPentahoDI()
+void charlotte::runDataIntegration()
 {
-	ch_jvm_wrapper::launch_pentaho_DI(this);
+	ch_jvm_wrapper::_launch_data_integration(this);
 }
 
-void charlotte::runPentahoRD()
+void charlotte::runReportDesigner()
 {
-	ch_jvm_wrapper::launch_pentaho_RD(this);
+	ch_jvm_wrapper::_launch_report_designer(this);
 }
 
 void charlotte::runCharlotteHelp()

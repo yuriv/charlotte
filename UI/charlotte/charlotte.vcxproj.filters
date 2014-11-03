@@ -80,6 +80,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_jvm_wrapper.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="ch_cad_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="charlotte.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="..\..\ch_core.h">
       <Filter>Header Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="ch_cad_window.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

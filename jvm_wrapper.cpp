@@ -1,6 +1,6 @@
 #include "jvm_wrapper.h"
 
-int ch_jvm_wrapper::_launch_pentaho_RD(pentaho_RD_desc* dsc)
+int ch_jvm_wrapper::_launch_report_designer(report_designer_desc* dsc)
 {
 	const size_t options_count = 2;
 
@@ -11,16 +11,15 @@ int ch_jvm_wrapper::_launch_pentaho_RD(pentaho_RD_desc* dsc)
 
 	if(dsc == NULL)
 	{
-		dsc = ch_config::report_tool();
+		dsc = ch_config::report_designer();
 	}
 
-	std::string classpath("-Djava.class.path=");
-	classpath += dsc->jar_classpath();
+	QDir classpath = QDir("-Djava.class.path=").filePath(dsc->jar_classpath().path());
 
 //	options[0].optionString = "-Djava.compiler=NONE";           /* disable JIT */
 //	options[1].optionString = const_cast<char*>(classpath.c_str());				//"-Djava.class.path=c:\\prj\\charlotte\\pentaho\\report-designer\\launcher.jar"; /* user classes */
 //	options[2].optionString = "-verbose:jni";                   /* print JNI-related messages */
-	options[0].optionString = const_cast<char*>(classpath.c_str());				//"-Djava.class.path=c:\\prj\\charlotte\\pentaho\\report-designer\\launcher.jar"; /* user classes */
+	options[0].optionString = const_cast<char*>(classpath.path().toStdString().c_str());				//"-Djava.class.path=c:\\prj\\charlotte\\pentaho\\report-designer\\launcher.jar"; /* user classes */
 	options[1].optionString = "-verbose:jni";                   /* print JNI-related messages */
 
 	vm_args.version = JNI_VERSION_1_8;
@@ -37,10 +36,10 @@ int ch_jvm_wrapper::_launch_pentaho_RD(pentaho_RD_desc* dsc)
 	}
 
 //	jclass cls = env->FindClass("org/pentaho/commons/launcher/Launcher");
-	jclass cls = env->FindClass(dsc->jar_class().c_str());
+	jclass cls = env->FindClass(dsc->jar_class().toStdString().c_str());
 	if(cls != 0) 
 	{
-		jmethodID meth = env->GetStaticMethodID(cls, dsc->jar_method().c_str(), dsc->jar_method_sgn().c_str()
+		jmethodID meth = env->GetStaticMethodID(cls, dsc->jar_method().toStdString().c_str(), dsc->jar_method_sgn().toStdString().c_str()
 			/*"([Ljava/lang/String;)V"*/);
 		jstring js = env->NewStringUTF("Default");
 		env->CallStaticVoidMethod(cls, meth, js);
@@ -51,9 +50,9 @@ int ch_jvm_wrapper::_launch_pentaho_RD(pentaho_RD_desc* dsc)
 
 void ch_launcher::run() throw(ch_unknown_exc, ch_module_exc)
 {
-	pentaho_RD_desc* dsc = ch_config::report_tool();
+	report_designer_desc* dsc = ch_config::report_designer();
 
-	_retval = ch_jvm_wrapper::_launch_pentaho_RD(dsc);
+	_retval = ch_jvm_wrapper::_launch_report_designer(dsc);
 	if(_retval < 0)
 	{
 		char const* msg = "Module \"Pentaho Report Designer\" failed to run, with code: ";
@@ -66,7 +65,7 @@ void ch_launcher::run() throw(ch_unknown_exc, ch_module_exc)
 
 ch_launcher* ch_jvm_wrapper::_launcher = NULL;
 
-int ch_jvm_wrapper::launch_pentaho_RD(QObject* parent)
+int ch_jvm_wrapper::_launch_report_designer(QObject* parent)
 {
 //	ch_launcher launcher(parent);
 
@@ -84,7 +83,7 @@ int ch_jvm_wrapper::launch_pentaho_RD(QObject* parent)
 	return ch_jvm_wrapper::_launcher->result();
 }
 
-int ch_jvm_wrapper::launch_pentaho_DI(QObject* parent)
+int ch_jvm_wrapper::_launch_data_integration(QObject* parent)
 {
 	return 0;
 }

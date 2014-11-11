@@ -120,7 +120,7 @@ private:
 };
 
 #define CHARLOTTE_INIT(argc, argv) \
-	ch_config::initialize(argc, argv);
+	ch_config::initialize(argc, argv); 
 
 
 #define CHARLOTTE_EXIT() \

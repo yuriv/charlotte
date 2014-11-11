@@ -13,10 +13,19 @@
 	purpose:	Represent CAD window
 *********************************************************************/
 
-#include <QWidget>
-#include <QVTKWidget.h>
+#include <vtkAutoInit.h>
+VTK_MODULE_INIT(vtkRenderingOpenGL);
 
-#include "..\..\ch_core.h"
+#include <vtkSmartPointer.h>
+#include <vtkOrientedGlyphContourRepresentation.h>
+#include <vtkContourWidget.h>
+#include <vtkRenderer.h>
+#include <QWidget>
+
+#include <..\..\qvtk_lib\QVTKInteractor.h>
+#include <..\..\qvtk_lib\QVTKWidget.h>
+
+#include <ch_core.h>
 
 class ch_cad_window : public QWidget
 {
@@ -24,11 +33,8 @@ public:
 	ch_cad_window();
 	~ch_cad_window();
 
-	void initialize() throw(ch_unknown_exc);
-	void finalize() throw(ch_unknown_exc);
-
-private:
-	QVTKWidget* _cad_window;
+	void initialize() throw(ch_unknown_exc, std::bad_alloc);
+	void finalize() throw(ch_unknown_exc, std::bad_alloc);
 };
 
 #endif // ch_cad_window_h__

@@ -1,10 +1,11 @@
 #include <jni.h>
 
-#include <../../jvm_wrapper.h>
+#include <jvm_wrapper.h>
 
 #include <qmessagebox.h>
 
 #include "charlotte.h"
+#include "ch_cad_window.h"
 
 using namespace std;
 #pragma comment (lib,"jvm.lib")
@@ -66,7 +67,8 @@ charlotte::~charlotte()
 
 void charlotte::runNewProject()
 {
-
+	ch_cad_window w;
+//	w.show();
 }
 
 void charlotte::runOpenProject()

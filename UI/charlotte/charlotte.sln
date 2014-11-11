@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "charlotte", "charlotte.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "contour", "..\contour\contour.vcxproj", "{155118D2-EE8C-443B-B146-591B40AADD9B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qvtk_lib", "..\qvtk_lib\qvtk_lib.vcxproj", "{E2ED4A3C-E5B3-47F6-AD4B-AC1C8CDB65A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +17,14 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|Win32.Build.0 = Debug|Win32
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|Win32.ActiveCfg = Release|Win32
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|Win32.Build.0 = Release|Win32
+		{155118D2-EE8C-443B-B146-591B40AADD9B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{155118D2-EE8C-443B-B146-591B40AADD9B}.Debug|Win32.Build.0 = Debug|Win32
+		{155118D2-EE8C-443B-B146-591B40AADD9B}.Release|Win32.ActiveCfg = Release|Win32
+		{155118D2-EE8C-443B-B146-591B40AADD9B}.Release|Win32.Build.0 = Release|Win32
+		{E2ED4A3C-E5B3-47F6-AD4B-AC1C8CDB65A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2ED4A3C-E5B3-47F6-AD4B-AC1C8CDB65A9}.Debug|Win32.Build.0 = Debug|Win32
+		{E2ED4A3C-E5B3-47F6-AD4B-AC1C8CDB65A9}.Release|Win32.ActiveCfg = Release|Win32
+		{E2ED4A3C-E5B3-47F6-AD4B-AC1C8CDB65A9}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

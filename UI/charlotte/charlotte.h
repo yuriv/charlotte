@@ -1,9 +1,10 @@
 #ifndef CHARLOTTE_H
 #define CHARLOTTE_H
 
-#include "../../ch_core.h"
+#include <QMainWindow>
 
-#include <QtWidgets/QMainWindow>
+#include <ch_core.h>
+
 #include "ui_charlotte.h"
 
 class charlotte : public QMainWindow
@@ -13,7 +14,6 @@ class charlotte : public QMainWindow
 public:
 	charlotte(QWidget *parent = 0);
 	~charlotte();
-
 public slots:
 	void runNewProject();
 	void runOpenProject();

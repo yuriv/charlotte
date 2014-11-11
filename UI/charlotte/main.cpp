@@ -1,23 +1,39 @@
+#include <vtkAutoInit.h>
+VTK_MODULE_INIT(vtkRenderingOpenGL);
+
+//#include <vtkSmartPointer.h>
+//#include <vtkRenderer.h>
+//#include <vtkRenderWindowInteractor.h>
+//#include <vtkOrientedGlyphContourRepresentation.h>
+//#include <vtkContourWidget.h>
+//#include <vtkRenderWindow.h>
+//
+//#include <UI\qvtk_lib\QVTKApplication.h>
+//#include <UI\qvtk_lib\QVTKWidget.h>
+
+#include "ch_application.h"
 #include "charlotte.h"
-#include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])
 {
-	CHARLOTTE_INIT(argc, argv);
+	int retval = 0;
 
-	QApplication a(argc, argv);
+	try
+	{
+		CHARLOTTE_INIT(argc, argv);
 
-	a.setApplicationName("Charlotte");
-	a.setApplicationVersion("0.0.1a");
-	a.setOrganizationName("IMT, Ltd.");
-	a.setOrganizationDomain("http://www.i-m-t.com");
+		ch_application a(argc, argv);
 
-	charlotte w;
-	w.show();
+		ch_application::initialize();
+		retval = ch_application::run();
+		ch_application::finalize();
 
-	int retval = a.exec();
-
-	CHARLOTTE_EXIT();
+		CHARLOTTE_EXIT();
+	}
+	catch(std::exception& exc)
+	{
+		qFatal(exc.what());
+	}
 
 	return retval;
 }

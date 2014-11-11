@@ -15,10 +15,15 @@
 #include <stdint.h>
 #include <string>
 #include <memory>
+#include <assert.h>
 
 #include "ch_except.h"
 #include "ch_logger.h"
 #include "ch_config.h"
 #include "ch_object.h"
+
+#define EXCASS(stmt, exc) \
+	assert(stmt); \
+	if(!stmt) throw exc;
 
 #endif // ch_core_h__
